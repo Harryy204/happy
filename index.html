@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./Intro/intro.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1 class="header_text">
+          Chào Thương, hôm nay là ngày đặc biệt của bạn
+        </h1>
+        <h1 class="header_text">Bạn muốn nhận một món quà không?</h1>
+      </div>
+      <div class="gif_container">
+        <img
+          src="https://media.giphy.com/media/j2BT5dABIt1OzGff6X/giphy.gif"
+          alt="Cute animated illustration"
+        />
+      </div>
+      <div class="buttons">
+        <button class="btn" id="yesButton" onclick="nextPage()">
+          Hong bé ơi
+        </button>
+        <button
+          class="btn"
+          id="noButton"
+          onmouseover="moveButton()"
+          onclick="moveButton()"
+        >
+          Có
+        </button>
+        <script>
+          function nextPage() {
+            window.location.href = "./MyBirthday/MyBirthday.html";
+          }
+
+          function moveButton() {
+            var x =
+              Math.random() *
+                (window.innerWidth -
+                  document.getElementById("noButton").offsetWidth) -
+              85;
+            var y =
+              Math.random() *
+                (window.innerHeight -
+                  document.getElementById("noButton").offsetHeight) -
+              48;
+            document.getElementById("noButton").style.left = `${x}px`;
+            document.getElementById("noButton").style.top = `${y}px`;
+          }
+          window.addEventListener("load", function () {
+            const audio = document.getElementById("player");
+            audio.play().catch((error) => {
+              console.log("Âm thanh không thể phát:", error);
+            });
+
+            setTimeout(() => {
+              setTimeout(() => {
+                document
+                  .getElementById("container")
+                  .classList.toggle("containeroverlay");
+
+                setTimeout(() => {
+                  window.location = "./MyBirthday/MyBirthday.html";
+                }, 1000);
+              }, 1000);
+            }, 2000);
+          });
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
